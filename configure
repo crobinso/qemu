@@ -2323,7 +2323,7 @@ quorum_tls_libs=`$pkg_config --libs gnutls 2> /dev/null`
 if compile_prog "$quorum_tls_cflags" "$quorum_tls_libs" ; then
   qcow_tls=yes
   libs_softmmu="$quorum_tls_libs $libs_softmmu"
-  libs_tools="$quorum_tls_libs $libs_softmmu"
+  libs_tools="$quorum_tls_libs $libs_tools"
   QEMU_CFLAGS="$QEMU_CFLAGS $quorum_tls_cflags"
   quorum="yes"
 else
