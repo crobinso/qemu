@@ -25,7 +25,7 @@
 #include "sysemu/sysemu.h"
 
 #if defined(CONFIG_OPENGL_DMABUF)
-# if SPICE_SERVER_VERSION >= 0x000d01 /* release 0.13.1 */
+# if SPICE_SERVER_VERSION >= 0x000c07 /* release 0.12.7 */
 #  define HAVE_SPICE_GL 1
 #  include "ui/egl-helpers.h"
 #  include "ui/egl-context.h"
