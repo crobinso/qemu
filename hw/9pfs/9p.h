@@ -167,6 +167,7 @@ typedef struct V9fsXattr
     void *value;
     V9fsString name;
     int flags;
+    bool xattrwalk_fid;
 } V9fsXattr;
 
 /*
