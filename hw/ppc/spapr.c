@@ -3844,7 +3844,10 @@ static void spapr_machine_2_11_class_options(MachineClass *mc)
     sPAPRMachineClass *smc = SPAPR_MACHINE_CLASS(mc);
 
     spapr_machine_2_12_class_options(mc);
-    smc->default_caps.caps[SPAPR_CAP_HTM] = SPAPR_CAP_ON;
+    /* Custom Fedora change to fix qemu 2.11.2 + TCG:
+     * https://bugzilla.redhat.com/show_bug.cgi?id=1614948
+     */
+    // smc->default_caps.caps[SPAPR_CAP_HTM] = SPAPR_CAP_ON;
     SET_MACHINE_COMPAT(mc, SPAPR_COMPAT_2_11);
 }
 
