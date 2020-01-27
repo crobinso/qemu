@@ -330,7 +330,7 @@ endif
 endif
 endif
 
-ifdef CONFIG_LINUX
+ifeq ($(CONFIG_LINUX)$(CONFIG_SECCOMP),yy)
 HELPERS-y += virtiofsd$(EXESUF)
 vhost-user-json-y += tools/virtiofsd/50-qemu-virtiofsd.json
 endif
@@ -680,7 +680,8 @@ rdmacm-mux$(EXESUF): LIBS += "-libumad"
 rdmacm-mux$(EXESUF): $(rdmacm-mux-obj-y) $(COMMON_LDADDS)
 	$(call LINK, $^)
 
-ifdef CONFIG_LINUX # relies on Linux-specific syscalls
+# relies on Linux-specific syscalls
+ifeq ($(CONFIG_LINUX)$(CONFIG_SECCOMP),yy)
 virtiofsd$(EXESUF): $(virtiofsd-obj-y) libvhost-user.a $(COMMON_LDADDS)
 	$(call LINK, $^)
 endif
