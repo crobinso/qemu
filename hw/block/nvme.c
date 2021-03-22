@@ -2854,11 +2854,9 @@ static void nvme_instance_init(Object *obj)
 {
     NvmeCtrl *s = NVME(obj);
 
-    if (s->namespace.blkconf.blk) {
-        device_add_bootindex_property(obj, &s->namespace.blkconf.bootindex,
-                                      "bootindex", "/namespace@1,0",
-                                      DEVICE(obj));
-    }
+    device_add_bootindex_property(obj, &s->namespace.blkconf.bootindex,
+                                  "bootindex", "/namespace@1,0",
+                                  DEVICE(obj));
 }
 
 static const TypeInfo nvme_info = {
